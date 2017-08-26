@@ -27,12 +27,9 @@ client = gspread.authorize(creds)
 # Import Data From Google SpreedSheet {{{
 
 # open sheet to work with raw customer comments
-#rawData = client.open('Customer Sentiment').sheet1
 sh = client.open('Customer Sentiment')
 worksheet = sh.worksheet('Sheet1')
 resultsheet = sh.worksheet('Results')
-# Open sheet for Output
-#output = client.worksheet("Results")
 
 
 #debug:
@@ -68,25 +65,6 @@ for result in results:
 ##  4. update corresponding row columns B and C with Sentiment and Score
 
 ## 1. Create and Select a range
-#comment_range = worksheet.row_count
-#sentiment_list = resultsheet.range('C2:C' + str(comment_range))
-##
-#for cell in sentiment_list:
-#    n=1
-#    cell.value = output[n]
-#    n =+ 1
-## Update in batch
-#resultsheet.update_cells(sentiment_list)
-
-#comment_list = resultsheet.range('B2:B' + str(comment_range))
-#for cell in comment_list:
-#    n=1
-#    cell.value = comment[n]
-#    n=+1
-#resultsheet.update_cells(comment_list)
-
-
-## Trying again to update cells:
 comment_range = worksheet.row_count
 row=1
 col=1
@@ -102,8 +80,6 @@ while row <= comment_range:
 header = ["Comment:", "Sentiment:"]
 index = 1
 resultsheet.insert_row(header, index)
-
-
 
 
 ################################################################################
