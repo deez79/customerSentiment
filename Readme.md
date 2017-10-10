@@ -7,6 +7,7 @@
 
 # Table of Contents
 * DESCRIPTION
+* LIBRARIES
 
 ## DESCRIPTION
 ### Objective:
@@ -19,3 +20,9 @@ To measure customer sentiment pasted into a google spreedsheet.
     2. read customer comments from spreadsheet
     3. Use TextBlob to analyse sentiment
     4. Post results in new google doc sheet
+## LIBRARIES
+    1. textBlob
+    2. gspread
+    3. oauth2client.service_account
+    4. pprint
+    
